@@ -1,35 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import { Text, Button } from "react-native";
+import CountDown from "react-native-countdown-component";
+
 const TimerFunc = (props) => {
-  var timerNumber = props.currentTime;
+  const currentTime = props.setTime;
+  const [isRunning, setRunning] = useState(false);
+  const [isReset, setReset] = useState(false);
 
-  const [isTimerStart, setTimer] = useState(false);
-
-  const startTimer = () => {
-    setTimer(!isTimerStart);
+  const timerSwitch = () => {
+    setRunning(!isRunning);
   };
 
-  const timerRuning = () => {
-    timerNumber = props.currentTime;
-    if (isTimerStart == false) {
-      setTimer();
-      const interval = setInterval(() => {
-        if (timerNumber >= 0) {
-          console.log("Current time is " + timerNumber);
-          timerNumber--;
-        } else {
-          console.log("You dont have  time");
-          clearInterval(interval);
-          setTimer();
-        }
-      }, 1000);
-    }
+  const resetTimer = () => {
+    setReset;
   };
+
 
   return (
     <>
-      <Text>{timerNumber}</Text>
-      <Button title="Start" onPress={timerRuning} />
+      <CountDown until={currentTime} running={isRunning} onPress={() => {}} />
+      <Button title="Start" onPress={timerSwitch} />
     </>
   );
 };

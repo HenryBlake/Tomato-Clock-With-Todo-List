@@ -3,19 +3,13 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import TimerFunc from "../ViewModels/timerFunc";
 
 const Clock = () => {
+  const currentTime = 1500;
+
   return (
     <View style={styles.container}>
-      {/* User will see the time pass by here */}
       <View>
         <Text>This is the progress bar shows</Text>
-        <TimerFunc currentTime={5}/>
-      </View>
-      {/* User change their time setting here */}
-      <Text>This is the time shows</Text>
-      {/* Buttons control timer starts and ends */}
-      {/* <Text>{isTimerStart}</Text> */}
-      <View>
-        {/* <Button title="start" /> */}
+        <TimerFunc setTime={currentTime} />
       </View>
     </View>
   );
